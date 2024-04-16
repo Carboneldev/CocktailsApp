@@ -1,9 +1,7 @@
-import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-// https://vitejs.dev/config/
 export default defineConfig({
   publicPath: `/CocktailsApp/`,
   plugins: [
@@ -13,5 +11,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    // Правило для обработки изображений
+    assetsInlineLimit: 0, // чтобы изображения не встраивались в код как Data URL
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]' // куда будут копироваться изображения
+      }
+    }
   }
-})
+});
+
