@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { fileURLToPath, URL } from 'node:url';
+import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
-  publicPath: `/CocktailsApp/`,
+  base: '/my-app/',
+  publicPath: '/CocktailsApp/',
   plugins: [
     vue(),
   ],
