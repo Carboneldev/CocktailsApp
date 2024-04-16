@@ -26,7 +26,7 @@ function removeIngredient(){
 </script>
 
 <template>
-<AppLayout imgUrl="/src/assets/img/bg1.jpg" 
+<AppLayout imgUrl="/src/assets/img/bg1small.png" 
 :backFunc="removeIngredient" 
 :is-back-button-visible="!!ingredient">
  <div class="wrapper">
