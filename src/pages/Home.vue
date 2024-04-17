@@ -26,7 +26,7 @@ function removeIngredient(){
 </script>
 
 <template>
-<AppLayout imgUrl="/src/assets/img/bg1small.png" 
+<AppLayout imgUrl="/img/bg1small.png" 
 :backFunc="removeIngredient" 
 :is-back-button-visible="!!ingredient">
  <div class="wrapper">
@@ -56,7 +56,7 @@ function removeIngredient(){
         <div class="text">
             Try our delicious cocktail recipes for every occasion. Find delicious cocktail recipes by ingredient through our cocktail generator.
         </div>
-        <img src="/src/assets/img/cocktails.png" class="img" alt="Cocktails">
+        <img src="/img/cocktails.png" class="img" alt="Cocktails">
     </div>
     <div v-else class="info"> 
         <div class="title">COCKTAILS WITH {{ingredient}} </div> 
