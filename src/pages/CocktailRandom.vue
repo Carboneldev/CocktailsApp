@@ -25,7 +25,8 @@ const ingredients = computed(()=>{
 })
 
 async function getCocktail(){
-    const data = await axios.get(COCKTAIL_RANDOM)
+  const randomParam = Math.random(); // Генерируем случайное число
+  const data = await axios.get(`${COCKTAIL_RANDOM}?random=${randomParam}`);
     cocktail.value = data?.data?.drinks[0];
 }
 
