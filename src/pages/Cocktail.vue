@@ -1,15 +1,15 @@
 <script setup>
 import axios from "axios"
-import { ref, computed } from 'vue'; //ref нужен для реактивности
+import { ref, computed } from 'vue'; 
 import AppLayout from '../components/AppLayout.vue';
 import { COCKTAIL_BY_ID } from '@/constants';
-import { useRoute } from 'vue-router'; //чтобы получить коктейль по id
+import { useRoute } from 'vue-router'; 
 
-const route = useRoute() //создаем объект в котором будет храниться все после доменного имени
+const route = useRoute() 
 
 const cocktail = ref(null);
 const cocktailId = computed(()=>route.path.split('/').pop());
- //мы создаем массив для ингредиентов
+
 const ingredients = computed(()=>{
  const ingredients = []
 
@@ -63,6 +63,4 @@ getCocktail()
 
 <style lang="sass" scoped>
 @import '../assets/styles/main.sass'
-
-
 </style>

@@ -1,84 +1,71 @@
 <script setup>
-
 import AppLayout from '../components/AppLayout.vue';
 import CocktailThumb from '../components/CocktailThumb.vue'
 import { useRootStore } from '@/stores/root'
 import { storeToRefs } from 'pinia';
 
-
-
 const rootStore = useRootStore()
-
 
 rootStore.getIngredients();
 
-const {ingredients, ingredient, cocktails} = storeToRefs(rootStore);
+const { ingredients, ingredient, cocktails } = storeToRefs(rootStore);
 
-
-
-function getCocktails(){
-    rootStore.getCocktails(rootStore.ingredient); //обращаемся к хранилищу и указываем какую константу мы используем. 
+function getCocktails() {
+  rootStore.getCocktails(rootStore.ingredient);
 }
 
-function removeIngredient(){
-    rootStore.setIngredient(null)
+function removeIngredient() {
+  rootStore.setIngredient(null)
 }
 </script>
 
 <template>
-<AppLayout imgUrl="/img/bg1small.jpg" 
-:backFunc="removeIngredient" 
-:is-back-button-visible="!!ingredient">
- <div class="wrapper">
-    <div v-if="!rootStore.ingredient || !cocktails" class="info">
+  <AppLayout imgUrl="/img/bg1small.jpg" :backFunc="removeIngredient" :is-back-button-visible="!!ingredient">
+    <div class="wrapper">
+      <div v-if="!rootStore.ingredient || !cocktails" class="info">
         <div class="title">Choose your drink</div>
         <div class="line"></div>
         <div class="select-wrapp">
-            <el-select
-      v-model="rootStore.ingredient"
-      placeholder="Choose the main ingredient"
-      size="large"
-      filterable
-      allow-create
-      class="select"
-      style="width: 240px"
-      @change="getCocktails"
-    >
-      <el-option
-        v-for="item in ingredients"
-        :key="item.strIngredient1"
-        :label="item.strIngredient1"
-        :value="item.strIngredient1"
-        
-      />
-    </el-select>
+          <el-select
+            v-model="rootStore.ingredient"
+            placeholder="Choose the main ingredient"
+            size="large"
+            filterable
+            allow-create
+            class="select"
+            style="width: 240px"
+            @change="getCocktails"
+          >
+            <el-option
+              v-for="item in ingredients"
+              :key="item.strIngredient1"
+              :label="item.strIngredient1"
+              :value="item.strIngredient1"
+            />
+          </el-select>
         </div>
         <div class="text">
-            Try our delicious cocktail recipes for every occasion. Find delicious cocktail recipes by ingredient through our cocktail generator.
+          Try our delicious cocktail recipes for every occasion. Find delicious cocktail recipes by ingredient through our cocktail generator.
         </div>
         <img src="/img/cocktails.png" class="img" alt="Cocktails">
-    </div>
-    <div v-else class="info"> 
-        <div class="title">COCKTAILS WITH {{ingredient}} </div> 
+      </div>
+      <div v-else class="info">
+        <div class="title">COCKTAILS WITH {{ingredient}} </div>
         <div class="line"></div>
         <div class="cocktails">
           <CocktailThumb 
-          v-for="cocktail in cocktails" 
-          :key="cocktail.idDrink"
-          :cocktail="cocktail"
+            v-for="cocktail in cocktails" 
+            :key="cocktail.idDrink"
+            :cocktail="cocktail"
           />
-        </div> 
+        </div>
+      </div>
     </div>
-</div>
-</AppLayout>
-
-
-
+  </AppLayout>
 </template>
 
 <style lang="sass" scoped>
 @import '../assets/styles/main.sass'
-
 
 .select-wrapp
   padding-top: 50px
@@ -109,5 +96,4 @@ function removeIngredient(){
   flex-wrap: wrap
   max-height: 400px
   overflow-y: auto
-
 </style>

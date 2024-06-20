@@ -1,12 +1,10 @@
 <script setup>
 import axios from "axios"
-import { ref, computed } from 'vue'; //ref нужен для реактивности
+import { ref, computed } from 'vue'; 
 import AppLayout from '../components/AppLayout.vue';
 import { COCKTAIL_RANDOM, INGREDIENT_PIC } from '@/constants';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
-
-
 
 const cocktail = ref(null);
 
@@ -17,26 +15,21 @@ const ingredients = computed(()=>{
     if (!cocktail.value[`strIngredient${i}`])break
 
     const ingredient = cocktail.value[`strIngredient${i}`]
-    
-
     ingredients.push(ingredient)
  }
  return ingredients;
 })
 
 async function getCocktail(){
-  const randomParam = Math.random(); // Генерируем случайное число
+  const randomParam = Math.random(); 
   const data = await axios.get(`${COCKTAIL_RANDOM}?random=${randomParam}`);
-    cocktail.value = data?.data?.drinks[0];
+  cocktail.value = data?.data?.drinks[0];
 }
-
-
 
 getCocktail()
 </script>
 
 <template>
-    
     <div v-if="cocktail" class="wrap">
         <AppLayout 
         :imgUrl="cocktail.strDrinkThumb">
@@ -58,9 +51,7 @@ getCocktail()
      <div class="name">
         {{  ingredient }}
      </div>
-     
     </swiper-slide>
-   
   </swiper>
        </div>
         <div class="instruction">
@@ -70,7 +61,6 @@ getCocktail()
          </div>
     </AppLayout>
     </div>
-   
 </template>
 
 <style lang="sass" scoped>
@@ -84,6 +74,4 @@ getCocktail()
 
 .name
   padding-top: 20px
-
-
 </style>

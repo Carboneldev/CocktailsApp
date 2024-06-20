@@ -1,27 +1,20 @@
 <script setup>
 const props = defineProps({
-cocktail: {
+  cocktail: {
     type: Object,
     required: true,
-}
-    }
-)
-
-
+  }
+});
 </script>
 
 <template>
-<div class="root">
+  <div class="root">
     <RouterLink :to="`/cocktails/${cocktail.idDrink}`">
-    <div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="pic">
-    </div>
+      <div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="pic"></div>
     </RouterLink>
     <div class="name">{{ cocktail.strDrink }}</div>
-</div>
-
-
+  </div>
 </template>
-
 
 <style lang="sass" scoped>
 @import '../assets/styles/main'
@@ -49,7 +42,4 @@ cocktail: {
   text-overflow: ellipsis
   padding-top: 15px
   letter-spacing: 0.1em
-
-
-
 </style>
