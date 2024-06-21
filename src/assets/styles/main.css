@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -80,9 +81,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
-  }
   .root {
     flex-direction: column;
   }
@@ -91,67 +89,108 @@ a {
   }
   .main {
     width: 100% !important;
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height: 100vh !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
   .btn {
-    font-size: 14px;
-    margin-top: 20px;
+    font-size: 14px !important;
+    margin-top: 20px !important;
   }
   .btns {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
   }
   .back {
-    margin-bottom: 10px;
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    margin-bottom: 10px !important;
+    display: block !important;
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
   }
   .slider {
-    padding: 20px 0;
+    padding: 20px 0 !important;
   }
   .swiper {
-    width: 100%;
-    overflow: hidden;
+    width: 100% !important;
   }
   .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
-  .ingredient-img {
-    width: 80px;
-    height: 80px;
+  .pic {
+    width: 100px !important;
+    height: 100px !important;
   }
   .name {
-    padding-top: 5px;
-    font-size: 12px;
+    padding-top: 10px !important;
+    font-size: 14px !important;
   }
   .info {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 40px 20px !important;
+    text-align: center !important;
   }
   .info .title {
-    font-size: 24px;
+    font-size: 24px !important;
+  }
+  .select-wrapp {
+    width: 100% !important;
+  }
+  .text {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+  .cocktails {
+    flex-direction: column !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    align-items: center !important;
   }
   .instruction {
-    width: 100%;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 10px;
-    text-align: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
+    width: 100% !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 10px !important;
+    text-align: center !important;
+  }
+  .list {
+    width: 100% !important;
+    padding: 20px 0 !important;
+    text-align: center !important;
+  }
+  .list-item {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    margin-bottom: 15px !important;
+  }
+  .list-item::before {
+    width: 14px !important;
+    height: 14px !important;
+    background-size: contain !important;
+  }
+  .el-button .icon {
+    font-size: 14px !important;
+  }
+  /* Стили для страницы Cocktail */
+  .cocktail-page .instruction {
+    width: 100% !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 10px !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: pre-wrap !important;
+    hyphens: auto !important;
   }
 }
 
